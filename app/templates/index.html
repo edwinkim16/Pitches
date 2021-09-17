@@ -12,7 +12,7 @@
         <a href=""><button style="color: black;" class="btn btn-success">Post a pitch</button></a>
             <br>
             <br>
-            {% for pitch in pitchs %} 
+            
                 <div style="background-color:#b3d7ef;" class="card">
                     <article class="media content-section">
                         <div class="card-title">
@@ -24,9 +24,10 @@
                             
                             <p> </p>
                             <small><a href="#"><button class="btn btn-outline-success btn-sm"> 
-                                <i class="fa fa-heart" id="up"></i>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Bot%C3%B3n_Me_gusta.svg/1200px-Bot%C3%B3n_Me_gusta.svg.png" alt="Upvote" width="30px" height="30px">
+                                <!-- <i class="fa fa-heart" id="up"></i> -->
                             </button></a>  <a href="#"><button class="btn btn-outline-warning btn-sm">
-                                 <i class="fa fa-thumbs-down" id="down" ></i></button></a></small>
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS74bhuasj_h106Bm11-0bx4sNEUSmVc16dHA&usqp=CAU" alt="Downvote" width="30px" height="30px"> </button></a></small>
                             <br>
                             <br>
                             <div><a href=""> <button class="btn btn-outline-info btn-sm">Comment</button> </a> </div>
@@ -36,7 +37,7 @@
                         </div>
                     </article>
                 </div>   
-            {% endfor %}
+            
         </div>
      
     </div>
