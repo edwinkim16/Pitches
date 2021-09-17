@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+    <body>
+    {% block content %}
+<div class="container-fluid">
+    <div  style="background-color:#deeef9; padding-top: 130px;" class="row">
+        
+        <div class="col-md-2">
+       
+        </div>
+        <div class="col-md-8">
+        <a href=""><button style="color: black;" class="btn btn-outline-info btn-sm">Post a pitch</button></a>
+            <br>
+            <br>
+            {% for pitch in pitchs %} 
+                <div style="background-color:#b3d7ef;" class="card">
+                    <article class="media content-section">
+                        <div class="card-title">
+                           
+                            <div class="card-body">
+                            
+                            <h4></h4>
+                            <small>  </small>
+                            
+                            <p> </p>
+                            <small><a href="#"><button class="btn btn-outline-success btn-sm"> 
+                                <i class="fa fa-heart" id="up"></i>
+                            </button></a>  <a href="#"><button class="btn btn-outline-warning btn-sm">
+                                 <i class="fa fa-thumbs-down" id="down" ></i></button></a></small>
+                            <br>
+                            <br>
+                            <div><a href=""> <button class="btn btn-outline-info btn-sm">Comment</button> </a> </div>
+                            
+                            </div>
+                            
+                        </div>
+                    </article>
+                </div>   
+            {% endfor %}
+        </div>
+     
+    </div>
+
+    
+</div>  
+{% endblock  %}
+    </body>
