@@ -5,6 +5,7 @@ class Config:
     '''
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://acces:Access@localhost/pitches'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     SIMPLEMDE_JS_IIFE = True
     SIMPLEMDE_USE_CDN = True
