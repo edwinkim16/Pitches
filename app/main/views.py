@@ -39,3 +39,24 @@ def new_pitch():
         return redirect(url_for('main.index', id=pitch.id))
 
     return render_template('new_pitch.html', title='New Post', pitch_form=form, post ='New Post')   
+
+@main.route('/comment/new/<int:id>', methods=['GET','POST'])
+@login_required
+def new_comment(id):
+    form = CommentForm()
+
+    if form.validate_on_submit():
+        
+        comment_content = form.comment.data
+
+        comment = Comment(comment_content= comment_content,pitch_id=id)
+
+        # pitch.save_pitch(pitch)
+        db.session.add(comment)
+        db.session.commit()
+        
+    comment = Comment.query.filter_by(pitch_id=id).all()
+
+
+
+    return render_template('new_comment.html', title='New Post', comment=comment,comment_form=form, post ='New Post')
