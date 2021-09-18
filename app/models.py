@@ -16,6 +16,9 @@ class User(UserMixin,db.Model):
     role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
     pass_secure = db.Column(db.String(255))
 
+    pitchs = db.relationship('Pitch',backref='user',lazy='dynamic')
+    comments = db.relationship('Comment', backref = 'comment', lazy= "dynamic")
+
     @property
     def password(self):
         raise AttributeError('You cannot read the password attribute')
@@ -40,3 +43,29 @@ class Role(db.Model):
 
     def __repr__(self):
         return f'User {self.name}'
+
+class Pitch(db.Model):
+    __tablename__ = 'pitch'
+
+    id = db.Column(db.Integer,primary_key = True)
+    title = db.Column(db.String(255))
+    content = db.Column(db.String())
+    category = db.Column(db.String(255))
+    
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+    pitch_id = db.relationship('Comment', backref = 'comments', lazy= "dynamic")
+
+    def __repr__(self):
+        return f'{self.title}'
+
+class Comment(db.Model):
+    __tablename__='comments'
+
+    id = db.Column(db.Integer,primary_key=True)
+    comment_content = db.Column(db.String())
+    pitch_id = db.Column(db.Integer,db.ForeignKey('pitch.id'))
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+
+
+    def __repr__(self):
+        return f'{self.comment}'          
