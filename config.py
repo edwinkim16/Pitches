@@ -7,7 +7,11 @@ class Config:
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://acces:Access@localhost/pitches'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-
+    MAIL_SERVER = 'smtp.googlemail.com'
+    MAIL_PORT = 587
+    MAIL_USE_TLS = True
+    MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
+    MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
     SIMPLEMDE_JS_IIFE = True
     SIMPLEMDE_USE_CDN = True
    
