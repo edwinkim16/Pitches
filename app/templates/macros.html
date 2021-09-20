@@ -5,25 +5,48 @@
     <article class="media content-section">
         <div class="card-title">
             <div class="article-metadata">
-              <p>hello world</p>
+             
             </div>
             <div class="card-body">
-            <small> {{ pitch.posted_on }}</small>
-            <h4>Category: {{ pitch.category }}</h4>
-            <small> {{ pitch.title }} </small>
             
-            <p> {{ pitch.content }}</p>
-            <small><a href="#"><button class="btn btn-outline-success btn-sm"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Symbol_thumbs_up.svg/765px-Symbol_thumbs_up.svg.png" height="20px"></button></a>  <a href="#"><button class="btn btn-outline-warning btn-sm"> <img src="https://vignette.wikia.nocookie.net/candy-crush-jelly/images/2/2f/Thumbs-down-icon.png/revision/latest?cb=20151226072412" height="20px"></button></a></small>
+            <h4 >Category: {{ pitch.category }}</h4>
+            <small style="font-size: larger;"> {{ pitch.title }} </small>
+            
+            <p style="font-size: larger;"> {{ pitch.content }}</p>
+            <small><a href="#"><button class="btn btn-outline-success btn-sm" id="like"> 
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Bot%C3%B3n_Me_gusta.svg/1200px-Bot%C3%B3n_Me_gusta.svg.png" alt="Upvote" width="10px" height="10px">
+        </button></a> <p id="name" style="color: white;"></p>  <a href="#"><button class="btn btn-outline-warning btn-sm" id="dislike">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS74bhuasj_h106Bm11-0bx4sNEUSmVc16dHA&usqp=CAU" alt="Downvote" width="10px" height="10px"> </button>
+            <!-- <small><a href="#"><button class="btn btn-outline-success btn-sm"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Symbol_thumbs_up.svg/765px-Symbol_thumbs_up.svg.png" height="20px"></button></a>  <a href="#"><button class="btn btn-outline-warning btn-sm"> <img src="https://vignette.wikia.nocookie.net/candy-crush-jelly/images/2/2f/Thumbs-down-icon.png/revision/latest?cb=20151226072412" height="20px"></button></a></small> -->
             <br>
             <br>
-            <div><a href="{{url_for('main.new_comment',id=pitch_id)}}"> <button class="btn btn-outline-info btn-sm">Comment</button> </a> </div>
+            <div><a href="{{ url_for('main.new_comment',id=pitch.id) }}"> <button class="btn btn-outline-info btn-sm">Comment</button> </a> </div>
             
             </div>
-            
+            <br>
         </div>
     </article>
+    
 </div>   
-
+<br>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var like=0
+        var dislike=0
+        $("#like").click(function(){
+            like++;
+            document.getElementById("name").innerHTML=like
+    
+    });
+    $("#dislike").click(function(){
+            dislike++;
+            document.getElementById("mane").innerHTML=dislike
+    
+    });
+        
+    })
+    
+    </script>
 
 {% endfor %}
 {% endmacro %}
