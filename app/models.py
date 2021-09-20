@@ -55,6 +55,11 @@ class Pitch(db.Model):
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
     pitch_id = db.relationship('Comment', backref = 'comments', lazy= "dynamic")
 
+    @classmethod
+    def get_pitches(cls, category):
+        pitches = Pitch.query.filter_by(pitch_category=category).all()
+        return pitches
+
     def __repr__(self):
         return f'{self.title}'
 
@@ -65,6 +70,8 @@ class Comment(db.Model):
     comment_content = db.Column(db.String())
     pitch_id = db.Column(db.Integer,db.ForeignKey('pitch.id'))
     user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+
+   
 
 
     def __repr__(self):

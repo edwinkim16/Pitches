@@ -15,6 +15,7 @@ def index():
    '''
    title = "Pitch Perfect"
    '''
+  
    title = 'Pitch Perfect'
    
 
@@ -48,6 +49,7 @@ def new_comment(id):
     if form.validate_on_submit():
         
         comment_content = form.comment.data
+        
 
         comment = Comment(comment_content= comment_content,pitch_id=id)
 
@@ -56,7 +58,7 @@ def new_comment(id):
         db.session.commit()
         
     comment = Comment.query.filter_by(pitch_id=id).all()
-
+  
 
 
     return render_template('new_comment.html', title='New Post', comment=comment,comment_form=form, post ='New Post')
